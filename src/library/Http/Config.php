@@ -14,7 +14,7 @@ use Ebcms\FormBuilder\Field\Text;
 use Ebcms\FormBuilder\Field\Textarea;
 use Ebcms\FormBuilder\Other\Tab;
 use Ebcms\FormBuilder\Row;
-use Ebcms\RequestFilter;
+use Ebcms\Request;
 
 class Config extends Common
 {
@@ -52,10 +52,10 @@ class Config extends Common
     }
 
     public function post(
-        RequestFilter $input,
+        Request $request,
         ModelConfig $configModel
     ) {
-        $configModel->save($input->post());
+        $configModel->save($request->post());
         return $this->success('更新成功！');
     }
 }
